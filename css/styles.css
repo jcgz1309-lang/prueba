@@ -1,0 +1,633 @@
+/* Variables de Diseño */
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent: #8d2b2b;
+    --font-main: system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+img {
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Layout Grid para Ficha y Concepto */
+.obra-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Responsive iframe de video */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Adaptabilidad a Pantallas Pequeñas */
+@media (max-width: 768px) {
+    .obra-grid {
+        grid-template-columns: 1fr;
+    }
+    .main-header nav {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+}
+/* Botones de Filtro */
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-primary);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
+
+/* Layout del Grid */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjeta de Obra */
+.obra-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.obra-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.obra-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.card-media {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.obra-card:hover .card-media img {
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+}
+
+.card-info {
+    padding: 1.2rem;
+}
+
+.card-info h3 {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.2rem;
+}
+
+.card-meta {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+/* Layout del Statement */
+.statement-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.statement-header {
+    border-bottom: 1px solid var(--card-bg);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.statement-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.statement-section {
+    margin-bottom: 3rem;
+}
+
+.statement-section h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    border-left: 3px solid var(--accent);
+    padding-left: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.statement-section p {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    text-align: justify;
+}
+
+/* Lista Bibliográfica */
+.bibliografia-marco {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.biblio-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.biblio-list li {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.biblio-list li strong {
+    color: var(--text-primary);
+}
+/* Layout Perfil del Artista */
+.profile-section {
+    margin-bottom: 4rem;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.profile-portrait img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+    display: block;
+}
+
+.profile-info h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.profile-tagline {
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.bio-text p {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* Botón para descarga de CV */
+.cv-download {
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #8d2b2b;
+}
+
+/* Galería de Fotografías del Artista */
+.artist-gallery-section {
+    border-top: 1px solid var(--card-bg);
+    padding-top: 3rem;
+}
+
+.artist-gallery-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.artist-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.artist-photo-card {
+    margin: 0;
+    background: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.artist-photo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.artist-photo-card figcaption {
+    padding: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Layout del Blog */
+.blog-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--card-bg);
+    padding-bottom: 1rem;
+}
+
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.blog-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.blog-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid var(--accent);
+    padding-right: 1.5rem;
+    text-align: center;
+}
+
+.blog-date .day {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.blog-date .month {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.blog-date .year {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.blog-content h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.blog-excerpt {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 600px) {
+    .blog-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-date {
+        border-right: none;
+        border-bottom: 2px solid var(--accent);
+        padding-right: 0;
+        padding-bottom: 1rem;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+}
+/* Estilos para el Menú de Navegación Global */
+.main-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid #2a2a2a;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.main-header nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--card-bg);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+/* Estilos para los iconos del Footer */
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-socials a {
+    color: var(--text-secondary);
+    font-size: 1.4rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* Margen para el icono en el menú superior */
+.nav-links a i {
+    margin-right: 0.3rem;
+}
+.obra-card:hover .card-info h3 {
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+/* Contenedor estético para el reproductor de audio */
+.soundcloud-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    background-color: #121212;
+}
+
+.soundcloud-container iframe {
+    display: block;
+    border: none;
+}
+/* Estilos para el contenedor de la imagen (.media-item) */
+/* Tarjeta y contenedor principal de la obra */
+.media-item {
+    max-width: 480px; /* Tamaño ideal para esculturas verticales sin saturar la pantalla */
+    margin: 2rem auto;
+    text-align: center;
+}
+
+/* Marco estético y efectos para la fotografía */
+.media-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    /* Borde sutil para separar el fondo claro de la foto del fondo oscuro de la web */
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el cursor (interactividad refinada) */
+.media-item img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.75);
+}
+
+/* Pie de foto tipográfico */
+.media-item figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary, #a0a0a0);
+    font-style: italic;
+}
+/* Estilo estándar para todas las obras (1 sola imagen, reproductor de audio, etc.) */
+.obra-media {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+}
+
+/* Modificador EXCLUSIVO para páginas con 2 o más imágenes lado a lado */
+.obra-media.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    align-items: start;
+}
+
+/* Ajustes de tarjeta e imagen */
+.media-item {
+    margin: 0;
+    text-align: center;
+}
+
+.media-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-item img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+.media-item figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary, #a0a0a0);
+    letter-spacing: 0.5px;
+    font-style: italic;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .obra-media.galeria-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+/* Estilo para el contenedor de referencias */
+.referencias-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+}
+
+.referencias-list li {
+    margin-bottom: 0.4rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    word-break: break-word; /* Evita que los enlaces largos rompan el layout */
+}
+
+/* Estilo de los enlaces */
+.referencias-list a {
+    color: var(--text-secondary, #b0b0b0);
+    text-decoration: none;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto hover */
+.referencias-list a:hover {
+    color: var(--accent-color, #ffffff);
+    border-bottom: 1px solid var(--accent-color, #ffffff);
+}

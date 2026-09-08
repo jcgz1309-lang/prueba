@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier Artístico</title>
+    <!-- Enlace fundamental al archivo CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- Navegación Principal -->
+    <header class="main-header">
+        <nav>
+            <a href="index.html" class="logo">Juliana Mendoza</a>
+            <ul class="nav-links">
+                <li><a href="index.html#galeria" class="active">Galería</a></li>
+                <li><a href="statement.html">Statement</a></li>
+                <li><a href="blog.html">Bitácora</a></li>
+                <li><a href="sobre-mi.html">Sobre mí</a></li>
+                <li>
+    <a href="https://www.instagram.com/yujin_krys?igsi=MXN5eHRqZms2cjJoZQ==" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram"></i> Instagram
+    </a>
+</li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <section id="galeria" class="galeria-section">
+            <div class="container">
+                <h2>Galería de Obras</h2>
+
+                <!-- Controles de Filtro -->
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="todos">Todas</button>
+                    <button class="filter-btn" data-filter="Escultura">Escultura</button>
+                    <button class="filter-btn" data-filter="Arte-sonoro">Arte sonoro</button>
+                    <button class="filter-btn" data-filter="Acuarela">Acuarela</button>
+                </div>
+
+                <!-- Grid de Tarjetas -->
+                <div class="galeria-grid">
+
+                    <!-- Obra 1: Fotografía -->
+                    <article class="obra-card" data-category="Arte-sonoro">     <!-- Cambiar para el filtro -->
+                        <a href="obra-detalle-artesonoro.html">
+                            <figure class="card-media">
+                                <img src="assets/Art-song.png" alt="Obra: Arte sonoro" loading="lazy">     <!-- Imagen y titulo -->
+                                <span class="badge">Arte sonoro</span>     <!-- filtrado -->
+                            </figure>
+                            <div class="card-info">
+                                <h3>Arte sonoro</h3>     <!-- titulo -->
+                                <p class="card-meta">2025 — Serie Arte sonoro</p>     <!-- descripcion -->
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Obra 2: Videoarte -->
+                    <article class="obra-card" data-category="Escultura">
+                        <a href="obra-detalle-impotencia copy.html">
+                            <figure class="card-media">
+                                <img src="assets/escultura1.jpeg" alt="Obra: Impotencia emocional" loading="lazy">
+                                <span class="badge">Escultura</span>
+                            </figure>
+                            <div class="card-info">
+                                <h3>Impotencia Emocional</h3>
+                                <p class="card-meta">2025 — Escultura</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Obra 3: Instalación -->
+                    <article class="obra-card" data-category="Acuarela">
+                        <a href="obra-detalle-acuerla.html">
+                            <figure class="card-media">
+                                <img src="assets/acuarela.jpeg" alt="Obra: Materia Residual" loading="lazy">
+                                <span class="badge">Acuarela</span>
+                            </figure>
+                            <div class="card-info">
+                                <h3>El mundo de la Tranquilidad</h3>
+                                <p class="card-meta">2026 — Acuarela</p>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+<footer>
+    <div class="footer-socials">
+        <a href="https://www.instagram.com/yujin_krys?igsi=MXN5eHRqZms2cjJoZQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>Instagram
+        </a>
+    </div>
+    <p>&copy; 2026 Juliana Mendoza. Todos los derechos reservados.</p>
+</footer>
+
+    <!-- Script de Filtros -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
